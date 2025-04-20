@@ -2,3 +2,5 @@
 # We will NOT be using sqlite for the database technology.
 # We will use PostgreSQL instead.
 __pycache__/
+.DS_Store
+db.sqlite3
