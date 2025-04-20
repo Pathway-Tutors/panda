@@ -1,0 +1,4 @@
+# This has purposely been left blank.
+# We will NOT be using sqlite for the database technology.
+# We will use PostgreSQL instead.
+__pycache__/
