@@ -29,14 +29,10 @@ def _load_env():
     os.environ.update(secrets)
 
 
-def _read_env(var: str) -> str | None:
-    return os.environ.get(var)
-
-
 _load_env()
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = _read_env("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
