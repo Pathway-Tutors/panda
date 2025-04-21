@@ -1,3 +1,3 @@
 # Panda
 
-*Panda* is the website for Pathways Tutors.
+*Panda* is the website for Pathway Tutors.
