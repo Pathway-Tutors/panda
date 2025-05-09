@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Platform - Congratulations</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/styles.css' %}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .background {
+            position: relative;
+            background-image: url("{% static 'accounts/images/trinity.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        .background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                    rgba(48, 120, 255, 1) 0%,
+                    rgba(0, 0, 0, 0.7) 100%);
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .modal {
+            background-color: white;
+            border-radius: 0.75rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+</head>
+<body class="font-sans">
+    <div class="background">
+        <div class="content h-full w-full">
+            <!-- Navigation -->
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="bg-white rounded-full p-2 mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                    </div>
+                </div>
+                <nav class="flex items-center space-x-6 text-white">
+                    <a href="#" class="hover:underline">Meet our tutors</a>
+                    <a href="#" class="hover:underline">International Students</a>
+                    <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">Portal</a>
+                </nav>
+            </div>
+            
+            <!-- Modal -->
+            <div class="flex justify-center items-center h-[calc(100%-80px)]">
+                <div class="modal">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-xl text-center">
+                            <span class="text-blue-500 font-bold">Wow!</span>
+                            We look forward to working with you!
+                        </h3>
+                    </div>
+                    <div class="p-6 flex flex-col sm:flex-col gap-4">
+                        Thanks! You'll soon get an email at <strong>{{ email }}</strong> with some information about your next steps. For most people, this will take place in the form of a diagnostic test (don't worry, these are short).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

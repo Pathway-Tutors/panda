@@ -18,9 +18,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from accounts.views import create_user
+
 
 urlpatterns = [
     path("", include("info.urls")),
     path("finance/", include("finance.urls")),
     path("admin/", admin.site.urls),
+    # overrides
+    path("apply/", create_user, name="apply"),
 ]

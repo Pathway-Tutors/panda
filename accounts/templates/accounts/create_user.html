@@ -1,0 +1,195 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="{% static 'info/images/icon.svg' %}" />
+    <link rel="icon" type="image/svg" href="{% static 'info/images/icon.svg' %}" />
+
+    <title>Scholar Bridge</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <style>
+        .hero-background {
+            position: relative;
+            background-image: url("{% static 'info/images/trinity.jpg' %}");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Adjusted gradient to fade to transparent more quickly */
+            background: linear-gradient(90deg,
+                    rgba(48, 120, 255, 1) 0%,
+                    rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .underline-blue {
+            position: relative;
+        }
+
+        .underline-blue::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #3b82f6;
+            border-radius: 2px;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'info/css/styles.css' %}" />
+
+</head>
+
+<body class="font-sans">
+    <!-- Header/Navigation with Background Image and Blue Gradient -->
+    <header class="hero-background text-white">
+        <div class="hero-content container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-white rounded-full p-1.5 ">
+                    <img src="{% static 'info/images/icon.svg' %}" alt="Icon" class="h-10 w-10">
+                </div>
+            </div>
+            <nav class="flex items-center space-x-6">
+                <a href="#" class="hover:underline">Meet our tutors</a>
+                <a href="#" class="hover:underline">International Students</a>
+
+            </nav>
+        </div>
+
+        <!-- Hero Section with CTA buttons on the right -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-8 py-8">
+        <div class="flex flex-col justify-center items-center mb-3">
+        <h1 class="text-center text-3xl font-bold mb-1">We're <span class="text-blue-500">excited</span> to work with you!</h1>
+            <img src="{% static 'info/images/scribble.svg' %}" class="w-1/2 align-center">
+        </div>
+        
+        <p>To properly support you on our 4 month journey, we develop tailored educational plans for every one of our
+            students and pairing them to their ideal tutor. We ask that you answer the following questions honestly and
+            to the highest detail possible to ensure we tailor you to a tutor correctly the first time.</p>
+        <br>
+        <p>Once you complete the application form below, you will be sent an automated email with a link to <span class="font-bold text-blue-500">book a free
+            consultation session with us.</span> During this consultation, someone from our experienced team of tutors will
+            discuss your child's current ability, future expectations, and university aspirations.</p>
+
+            <div class="inline-flex items-center justify-center w-full text-xl text-center">
+                <hr class="w-screen h-px my-8 bg-zinc-300 border-0">
+                <span class="absolute px-3 text-zinc-400 -translate-x-1/2 bg-white left-1/2 ">Application Form</span>
+            </div>
+        <form action="/apply/" method="post" class="space-y-2 mt-2">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div class="grid grid-cols-2 gap-x-2">
+                <div class="fieldWrapper bg-zinc-100 p-2 rounded-lg [&>input]:bg-white">
+                    {{ form.first_name.as_field_group }}
+                </div>
+                <div class="fieldWrapper bg-zinc-100 p-2 rounded-lg [&>input]:bg-white">
+                    {{ form.last_name.as_field_group }}
+                </div>
+            </div>
+
+            <div class="fieldWrapper bg-zinc-100 p-2 rounded-lg [&>input]:bg-white">
+                {{ form.email.as_field_group }}
+            </div>
+            <div class="fieldWrapper bg-zinc-100 p-2 rounded-lg [&>textarea]:bg-white">
+                <h1>{{ form.subjects.label }}</h1>
+                {{ form.subjects }}
+                <p class="italic text-zinc-400 mt-1">{{ form.subjects.help_text }}</p>
+            </div>
+            <input type="submit" value="Submit"
+                class="p-2 bg-blue-500 text-white rounded-md w-full hover:duration-600 duration-200">
+        </form>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 py-16 px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+                <!-- Logo and social section -->
+                <div class="md:col-span-1">
+                    <!-- Wavy logo -->
+
+                    <img class="w-12 h-12" src="{% static 'info/images/icon.svg' %}" alt="">
+
+                    <p class="mt-6 text-sm">
+                        Helping students achieve their dreams :D
+                    </p>
+
+                    <!-- Social icons -->
+
+                </div>
+
+                <!-- Solutions column -->
+                <div>
+                    <h3 class="text-white font-semibold mb-6">International Baccalaureate</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white">Mathematics AA</a></li>
+                        <li><a href="#" class="hover:text-white">Physics</a></li>
+                        <li><a href="#" class="hover:text-white">Computer Science</a></li>
+                        <li><a href="#" class="hover:text-white">Chemistry</a></li>
+                        <li><a href="#" class="hover:text-white">Economics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support column -->
+                <div>
+                    <h3 class="text-white font-semibold mb-6">UCAS Support</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white">What's changed?</a></li>
+                        <li><a href="#" class="hover:text-white">Admission Tests</a></li>
+                        <li><a href="#" class="hover:text-white">Guides</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company column -->
+                <div>
+                    <h3 class="text-white font-semibold mb-6">Company</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Team</a></li>
+                        <li><a href="#" class="hover:text-white">Jobs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal column -->
+                <div>
+                    <h3 class="text-white font-semibold mb-6">Legal</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white">Terms of service</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 mt-16 pt-8">
+                <p class="text-sm">© 2025 Pathway Tutors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

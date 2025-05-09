@@ -22,6 +22,7 @@ class Application(models.Model):
         blank=False,
     )
     subjects = models.TextField(max_length=300, blank=False, null=False)
+    notes = models.TextField(max_length=500, blank=True, null=False)
 
     def __str__(self):
         return "{} [{}] [{}]".format(

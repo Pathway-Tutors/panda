@@ -37,14 +37,15 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["*"]
+# CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 
 INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "finance.apps.FinanceConfig",
+    "info.apps.InfoConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

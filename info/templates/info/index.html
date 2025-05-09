@@ -1,0 +1,395 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="{% static 'info/images/icon.svg' %}" />
+    <link rel="icon" type="image/svg" href="{% static 'info/images/icon.svg' %}" />
+
+    <title>Scholar Bridge</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <style>
+        .hero-background {
+            position: relative;
+            background-image: url("{% static 'info/images/trinity.jpg' %}");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Adjusted gradient to fade to transparent more quickly */
+            background: linear-gradient(90deg,
+                    rgba(48, 120, 255, 1) 0%,
+                    rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .underline-blue {
+            position: relative;
+        }
+
+        .underline-blue::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #3b82f6;
+            border-radius: 2px;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'info/css/styles.css' %}" />
+
+</head>
+
+<body class="font-sans">
+    <!-- Header/Navigation with Background Image and Blue Gradient -->
+    <header class="hero-background text-white">
+        <div class="hero-content container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-white rounded-full p-1.5 ">
+                    <img src="{% static 'info/images/icon.svg' %}" alt="Icon" class="h-10 w-10">
+                </div>
+            </div>
+            <nav class="flex items-center space-x-6">
+                <a href="#" class="hover:underline">Meet our tutors</a>
+                <a href="#" class="hover:underline">International Students</a>
+
+            </nav>
+        </div>
+
+        <!-- Hero Section with CTA buttons on the right -->
+        <div class="hero-content container mx-auto px-4 py-16">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <!-- Left side: Text content -->
+                <div class="md:max-w-xl">
+                    <h1 class="text-5xl font-bold mb-4">Set your child on the path to success.</h1>
+
+                    <!-- Stats Section -->
+                    <div class="grid grid-cols-3 gap-8 mt-16">
+                        <div>
+                            <h2 class="text-4xl font-bold text-center">10+</h2>
+                            <p class="md:whitespace-nowrap">IB & GCSE subjects.</p>
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-bold text-center">50+</h2>
+                            <p class="md:whitespace-nowrap">Russell Group offers.</p>
+                        </div>
+                        <div>
+                            <h2 class="text-4xl font-bold text-center md:whitespace-nowrap">ESAT & TMUA</h2>
+                            <p>Expert student advice.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side: CTA Buttons (now horizontal) -->
+                <div class="mt-8 md:mt-0 md:mb-8 flex flex-row space-x-4 md:self-center">
+                    <a href="{% url 'apply' %}"
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-2xl transition text-center font-semibold">Apply
+                        Now.</a>
+                    <a href="#"
+                        class="border-2 border-blue-500 text-white px-8 py-3 rounded-2xl hover:bg-white hover:text-blue-500 transition text-center font-semibold">View
+                        Subjects</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-8 py-8">
+        <!-- Two Column Section -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Who are we looking for? -->
+            <div class="bg-gray-100 py-8 px-8 rounded-lg shadow-md shadow-blue-500">
+                <h2 class="text-3xl text-center font-bold">
+                    <span class="text-blue-500">Who</span>
+                    are we looking for?
+                </h2>
+                <img src="{% static 'info/images/scribble.svg' %}" class="w-1/2 flex justify-center mx-auto mb-5">
+                <ul class="space-y-6 text-2xl">
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <div>
+                            <span class="text-blue-500">Ambitious</span> Students
+                            <span class="text-blue-500">going into</span>
+                            <span class="text-blue-500">Year 11</span> or
+                            <span class="text-blue-500">IB Diploma Year 1 or 2</span>.
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <div>
+                            Students aiming for competitive
+                            <a class="text-blue-500 underline" href="https://chatuniversity.co.uk/university-tiers"
+                                target="_blank">Tier 1 or 2</a> Universities.
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <div>
+                            Hard-working students, willing to work with us intensely for 4 months.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Why Us? -->
+            <div class="bg-gray-100 py-8 px-8 rounded-lg shadow-md shadow-blue-500">
+                <h2 class="text-3xl text-center font-bold">
+                    <span class="text-blue-500">Why</span>
+                    Us?
+                </h2>
+                <img src="{% static 'info/images/scribble.svg' %}" class="w-1/2 flex justify-center mx-auto mb-5">
+                <ul class="space-y-6 text-2xl">
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <div>
+                            Our tutors secured offers from some of the
+                            <span class="text-blue-500">best Universities in the UK</span>, on the most competitive
+                            courses.
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <div>
+                            We're the first group of students to have sat the new
+                            <span class="text-blue-500">ESAT & TMUA</span>, so we know what to expect.
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <div>
+                            Get access to a <span class="text-blue-500">network of expertise</span>, not just one
+                            person. Your experience with us will be <span class="text-blue-500">tailored for
+                                <strong>your</strong> goals.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- University Carousel Section -->
+        <div class="mt-12">
+            <div class="inline-flex items-center justify-center w-full text-xl text-center">
+                <hr class="w-screen h-px my-8 bg-zinc-300 border-0">
+                <span class="absolute px-3 text-zinc-400 -translate-x-1/2 bg-white left-1/2 ">Our tutors <span
+                        class="font-semibold text-zinc-400">secured</span> offers from</span>
+            </div>
+
+
+            <div class="relative">
+                <!-- Carousel Controls -->
+                <button id="prevBtn"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-blue-600">
+                    <span>&lt;</span>
+                </button>
+                <button id="nextBtn"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-blue-600">
+                    <span>&gt;</span>
+                </button>
+
+                <!-- Carousel Container -->
+                <div class="overflow-hidden">
+                    <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
+
+                        {% for uni in unis %}
+                        <!-- University of Cambridge -->
+                        <div class="w-full md:w-1/3 p-4 flex-shrink-0">
+                            <div class="bg-gray-100 p-5 rounded-lg grid sm:grid-cols-1 lg:grid-cols-2 gap-x-4 relative">
+                                <div class="bg-gray-300 h-48 rounded-lg flex items-center justify-center overflow-hidden sm:hidden lg:block"">
+                                    <img src=" {% get_static_prefix %}info/images/{{ uni.image }}" alt="{{ uni.name }}"
+                                    class="h-full w-full object-cover">
+                                </div>
+                                <div class="mb-5">
+                                    <h3 class="text-xl mt-4">{{ uni.name }}</h3>
+                                    <ul class="mt-2">
+                                        {% for course in uni.courses %}
+                                        <li class="text-zinc-600 text-sm truncate">• {{ course }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    <div
+                                        class="absolute bottom-0 right-0 {{ uni.badge.colour }} text-white text-sm py-1 px-3 rounded-tl-xl rounded-br-xl">
+                                        <p>{{ uni.badge.text|safe }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4 text-zinc-400 italic">
+                and 15+ other Russell Group universities.
+            </div>
+        </div>
+
+        <div class="bg-white py-12 sm:py-24">
+            <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3">
+                <div class="max-w-xl">
+                    <h2 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">Meet our
+                        team</h2>
+                    <div>
+                        <p class="mt-6 text-lg/8 text-gray-600 mb-2">We're a group of tutors, and importantly
+                            ex-students, passionate about helping other students succeed and taking them to their dream
+                            Universities.</p>
+                        <a class="p-2 bg-blue-500 text-white rounded-md w-full hover:bg-blue-600 duration-200"
+                            href="/team">Check out our full team +
+                            expertise.</a>
+                    </div>
+                </div>
+                <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+                    {% for tutor in tutors %}
+                    <li>
+                        <div class="flex items-center gap-x-6">
+                            <img class="size-16 rounded-full" src="{% static 'info/images/viswa.jpg' %}" alt="">
+                            <div>
+                                <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">{{ tutor.name }}</h3>
+                                <p class="text-sm/6 font-semibold text-blue-600">{{ tutor.course }}</p>
+                                <p class="text-sm/6 font-semibold text-blue-400 italic">@ {{ tutor.university }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Simple carousel functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.getElementById('carousel');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+
+            // For mobile, we show 1 slide at a time, for desktop we show 3
+            const slidesToShow = window.innerWidth < 768 ? 1 : 3;
+            const slideCount = carousel.children.length;
+
+            function updateCarousel() {
+                const slideWidth = 100 / slidesToShow;
+                carousel.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+            }
+
+            prevBtn.addEventListener('click', function () {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = slideCount - slidesToShow;
+                }
+                updateCarousel();
+            });
+
+            nextBtn.addEventListener('click', function () {
+                if (currentIndex < slideCount - slidesToShow) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+
+                updateCarousel();
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function () {
+                const newSlidesToShow = window.innerWidth < 768 ? 1 : 3;
+                if (newSlidesToShow !== slidesToShow) {
+                    // Reset carousel position on layout change
+                    currentIndex = 0;
+                    updateCarousel();
+                }
+            });
+        });
+    </script>
+
+    <footer class="bg-gray-900 text-gray-300 py-16 px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+                <!-- Logo and social section -->
+                <div class="md:col-span-1">
+                    <!-- Wavy logo -->
+
+                    <img class="w-12 h-12" src="{% static 'info/images/icon.svg' %}" alt="">
+
+                    <p class="mt-6 text-sm">
+                        Helping students achieve their dreams :D
+                    </p>
+
+                    <!-- Social icons -->
+
+                </div>
+
+                <!-- Solutions column -->
+                <div>
+                    <h3 class="text-white font-semibold mb-6">International Baccalaureate</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white">Mathematics AA</a></li>
+                        <li><a href="#" class="hover:text-white">Physics</a></li>
+                        <li><a href="#" class="hover:text-white">Computer Science</a></li>
+                        <li><a href="#" class="hover:text-white">Chemistry</a></li>
+                        <li><a href="#" class="hover:text-white">Economics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support column -->
+                <div>
+                    <h3 class="text-white font-semibold mb-6">UCAS Support</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white">What's changed?</a></li>
+                        <li><a href="#" class="hover:text-white">Admission Tests</a></li>
+                        <li><a href="#" class="hover:text-white">Guides</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company column -->
+                <div>
+                    <h3 class="text-white font-semibold mb-6">Company</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Team</a></li>
+                        <li><a href="#" class="hover:text-white">Jobs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal column -->
+                <div>
+                    <h3 class="text-white font-semibold mb-6">Legal</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white">Terms of service</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-800 mt-16 pt-8">
+                <p class="text-sm">© 2025 Pathway Tutors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

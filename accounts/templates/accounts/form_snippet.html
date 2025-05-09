@@ -1,0 +1,16 @@
+{% for field in form %}
+    <div class="fieldWrapper px-2 py-2 border border-zinc-200 rounded-md bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-1">
+        {{ field.errors }}
+        {{ field.label_tag }}
+        <div class="bg-white rounded-lg">{{ field }}</div>
+        
+
+        {% if field.help_text %}
+        {% if field.help_text|length < 40 %}
+            <div class="text-center text-sm italic mt-1 text-zinc-400">{{ field.help_text }}</div>
+        {% else %}
+            <div class="text-sm italic mt-1 text-zinc-400">{{ field.help_text }}</div>
+        {% endif %}
+        {% endif %}
+    </div>
+{% endfor %}
